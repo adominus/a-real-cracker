@@ -65,13 +65,14 @@ class MyGame extends Phaser.Scene
 	const pow = this.sound.add('pow');
 
 	this.jokes = [
+	    'What\'s Nibbler\'s favourite movie? \n\nBunny I shrunk the kids',
 	    'Who\'s Lillith\'s favourite Harry Potter character??\n\nSeverus Snake',
 	    'Knock Knock\nWho\'s there?\nNagini\nOh, Slytherin',
 	    'Who\'s Nibbler\'s favourite Slade member?\n\nBunny Holder',
-	    'Who\'s Archimedes\'s favourite Wham member?\n\nGeorge Meowchael',
-	    'What is the Scottish first minister\'s favourite Madonna song?\n\nLike a Sturgeon',
+	    'What is the Scottish First Minister\'s favourite Madonna song?\n\nLike a Sturgeon',
 	    'How do weavers communicate during lockdown?\n\nVia Loom',
-	    'How does a school of finish communicate during lockdown?\n\nVia Microsoft Breems',
+	    'Who\'s Archimedes\'s favourite Wham member?\n\nGeorge Meowchael',
+	    'How does a school of fish communicate during lockdown?\n\nVia Microsoft Breams',
 	    'How does Josh communicate with his family during lockdown? \n\nVia Broome',
 	];
 
@@ -80,19 +81,18 @@ class MyGame extends Phaser.Scene
 	this.input.on('pointerup', function () {
 		if (this.state == 1) {
 		    if (explode1.isPaused) {
-			    this.addBang();
-			    explode1.play();
-			    explode2.play();
-			    pow.play();
+			this.addBang();
+			explode1.play();
+			explode2.play();
+			pow.play();
 		    }
 		} else if (this.state == 2) {
-			let text = this.add.text(100, centreY - 100, this.jokes[jokes_counter++ % this.jokes.length],
-				{ font: '50px Arial', fill: 'white', wordWrap: { width: gameWidth - 200 }, align: 'center' , stroke: 'black', strokeThickness: 8});
+		    this.add.text(100, centreY - 100, this.jokes[jokes_counter++ % this.jokes.length],
+			    { font: '50px Arial', fill: 'white', wordWrap: { width: gameWidth - 200 }, align: 'center' , stroke: 'black', strokeThickness: 8});
 
-			this.state = 3
+		    this.state = 3
 		} else if (this.state == 3) {
-			console.log('restart');
-			this.scene.restart();
+		    this.scene.restart();
 		}
 	}, this);
 
